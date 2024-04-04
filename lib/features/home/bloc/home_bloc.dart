@@ -10,9 +10,38 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
-    on<HomeProductWishlistButtonClickedEvent>(homeProductWishlistButtonClickedEvent);
+    on<HomeWishlistButtonNavigateEvent>(homeWishlistButtonNavigateEvent);
+    on<HomeCartButtonNavigateEvent>(homeCartButtonNavigateEvent);
+    on<HomeProductWishlistButtonClickedEvent>(
+        homeProductWishlistButtonClickedEvent);
+    on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
   }
 
-  FutureOr<void> homeProductWishlistButtonClickedEvent(HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
+  FutureOr<void> homeWishlistButtonNavigateEvent(
+      HomeWishlistButtonNavigateEvent event, Emitter<HomeState> emit) {
+    print(
+      "Wishlist Clicked",
+    );
+  }
+
+  FutureOr<void> homeCartButtonNavigateEvent(
+      HomeCartButtonNavigateEvent event, Emitter<HomeState> emit) {
+    print(
+      "Cart Clicked",
+    );
+  }
+
+  FutureOr<void> homeProductWishlistButtonClickedEvent(
+      HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
+    print(
+      "Wishlist Navigate Clicked",
+    );
+  }
+
+  FutureOr<void> homeProductCartButtonClickedEvent(
+      HomeProductCartButtonClickedEvent event, Emitter<HomeState> emit) {
+    print(
+      "Cart Navigate Clicked",
+    );
   }
 }
